@@ -1,0 +1,587 @@
+[
+  {
+    "code": "ALARM 0010",
+    "title": "CPU BOARD COMBINATION ERROR",
+    "description": "Kontrol ünitesi başlatıldığında, ACP01 kartı ile SDCA01 kartı arasındaki kombinasyon doğrulanamadı.",
+    "solution": "SDCA01 kartı üzerindeki rotary switch (döner anahtar) ayarlarını kontrol edin. Kartın yuvaya tam oturduğundan ve pinlerin zarar görmediğinden emin olun.",
+    "expert_note": "Kart değişiminden sonra sık görülür. Eksen sayısına göre switch pozisyonunun doğruluğunu Yaskawa şemalarından teyit edin."
+  },
+  {
+    "code": "ALARM 0020",
+    "title": "CPU BOARD COMBINATION ERROR",
+    "description": "Emniyet birimi (Safety Unit) ile ana CPU board arasındaki donanım uyumsuzluğu.",
+    "solution": "Sistem parametrelerinden emniyet kartı tanımlamalarını kontrol edin. Donanım versiyonlarının firmware ile uyumlu olduğunu doğrulayın.",
+    "expert_note": "Yazılım güncellemesi sonrası oluşabilir. Parametre yedeğiniz varsa geri yüklemeyi deneyin."
+  },
+  {
+    "code": "ALARM 1020",
+    "title": "MOTOPLUS APPLICATION LOADING ERROR",
+    "description": "MotoPlus uygulaması yüklenirken dosya okuma hatası veya imza doğrulama hatası oluştu.",
+    "solution": "Yüklenen .out uzantılı dosyanın bozuk olmadığını kontrol edin. Cihazdaki mevcut MotoPlus hafıza kapasitesini kontrol edin.",
+    "expert_note": "Uygulama derlenirken kullanılan SDK versiyonu ile robotun sistem versiyonu çakışıyor olabilir."
+  },
+  {
+    "code": "ALARM 1050",
+    "title": "HARDWARE DIAGNOSIS ERROR",
+    "description": "Sistem açılışında yapılan donanım öz-tanılama testinde hata tespit edildi.",
+    "solution": "Tüm genişleme kartlarını (I/O, haberleşme vb.) söküp sistemi tekrar başlatın. Hata devam ederse ana CPU board arızalı olabilir.",
+    "expert_note": "Genellikle kısa devre yapan bir harici I/O kartı tüm veri yolunu (bus) kilitleyerek bu hataya sebep olur."
+  },
+  {
+    "code": "ALARM 1105",
+    "title": "SYSTEM ERROR (SERVO)",
+    "description": "Servo kontrolcü tarafında kritik işlem hatası.",
+    "solution": "Ana şalteri kapatın, 1 dakika bekleyip tekrar açın. Eğer hata kalıcıysa Servo CPU kartını değiştirin.",
+    "expert_note": "Elektriksel gürültü (EMI) kaynaklı olabilir. Kontrolcü şasinin topraklamasını kontrol edin."
+  },
+  {
+    "code": "ALARM 1200",
+    "title": "TEMPERATURE HIGH (CONTROLLER)",
+    "description": "Kontrol ünitesi iç ortam sıcaklığı kritik seviyeye ulaştı.",
+    "solution": "Pano fanlarının dönüş hızını ve hava kanallarını kontrol edin. Toz filtrelerini temizleyin veya değiştirin.",
+    "expert_note": "Pano içindeki sirkülasyon fanı durmuş olabilir. Fanın dönüp dönmediğini fiziksel olarak kontrol edin."
+  },
+  {
+    "code": "ALARM 1301",
+    "title": "COMMUNICATION ERROR (SERVO)",
+    "description": "Ana CPU ile servo sürücü arasındaki yüksek hızlı haberleşme hattında veri kaybı.",
+    "solution": "CN106 haberleşme kablosunun bağlantılarını kontrol edin. Kablo üzerinde fiziksel hasar olup olmadığını inceleyin.",
+    "expert_note": "Robotun içinden geçen encoder/power kablo grubunda (harness) meydana gelen bir kırılma, haberleşmeyi anlık kesebilir."
+  },
+  {
+    "code": "ALARM 1325",
+    "title": "COMMUNICATION ERROR (ENCODER)",
+    "description": "Encoder verisi okunurken parazit veya sinyal kaybı oluştu.",
+    "solution": "İlgili eksenin encoder kablosunu ve konnektörünü kontrol edin. Robot şasisi ile motor gövdesi arasındaki sürekliliği test edin.",
+    "expert_note": "Motorun arkasındaki encoder kapağının içine yağ veya toz sızmış olabilir. Konnektörü balata spreyi ile temizleyip kurulayın."
+  },
+  {
+      "code": "ALARM 4107",
+      "title": "SERVO OVERLOAD",
+      "description": "Hareket sırasında bir servo ekseni tork veya akım sınırını aştı.",
+      "solution": "Robotu güvenli bir şekilde durdurun, mekanik bir sıkışma olup olmadığını kontrol edin. Taşıma kapasitesini (payload) ve hız profilini doğrulayın.",
+      "expert_note": "Genellikle ani hızlanma değişimlerinden sonra tetiklenir. İvmeyi (accel) %10-15 azaltarak eksen akım trendini tekrar test edin."
+   },
+    {
+      "code": "ALARM 4311",
+      "title": "CONVERTER VOLTAGE DROP",
+      "description": "Konvertör devresindeki DC voltajı, izin verilen limitin altına düştü.",
+      "solution": "Giriş voltajını (R, S, T fazlarını) ölçün. Ana kontaktörün sağlıklı çekip çekmediğini kontrol edin.",
+      "expert_note": "Fabrikadaki diğer büyük makineler aynı anda kalkış yaptığında oluşan anlık voltaj düşümleri buna sebep olabilir. Pano girişine bir multimetre bağlayıp izleyin."
+    },
+    {
+      "code": "ALARM 4323",
+      "title": "REGENERATIVE POWER OVERFLOW",
+      "description": "Frenleme sırasında oluşan geri besleme enerjisi, direnç kapasitesini aştı.",
+      "solution": "Rejeneratif frenleme direncini ve kablo bağlantılarını kontrol edin. Robotun yavaşlama (decel) hızını düşürün.",
+      "expert_note": "Direnç üzerindeki termik sigorta atmış olabilir. Direnci multimetre ile ölçerek açık devre olup olmadığını kontrol edin."
+    },
+    {
+      "code": "ALARM 4400",
+      "title": "SERVO POWER ON ERROR",
+      "description": "Servo gücü açılmaya çalışılırken donanımsal bir engel tespit edildi.",
+      "solution": "Emniyet devresini (E-Stop, Gate) kontrol edin. Servo ON kontaktörünün mekanik olarak takılıp takılmadığına bakın.",
+      "expert_note": "Genellikle harici bir emniyet rölesinin (Safety Relay) zamanlamasından kaynaklanır. Röle çıkışlarını gözlemleyin."
+    },
+    {
+      "code": "ALARM 5110",
+      "title": "ENCODER ERROR (ABSOLUTE)",
+      "description": "Encoder mutlak pozisyon verisinde tutarsızlık veya veri kaybı.",
+      "solution": "Encoder kablo bağlantılarını kontrol edin. Eğer piller sağlamsa, pozisyonu yeniden kalibre edin (Home Position).",
+      "expert_note": "Robotu sert bir stopla durdurduğunuzda encoder sayıcıları anlık şaşırabilir. Kablo zırhlamasının (shield) topraklanmış olduğunu kontrol edin."
+    },
+    {
+      "code": "ALARM 1312",
+      "title": "COMMUNICATION ERROR (PENDANT)",
+      "description": "Teach Pendant ile kontrol ünitesi arasındaki haberleşme koptu.",
+      "solution": "Pendant kablosunu kontrol edin. Konektördeki pinlerin eğilip eğilmediğine bakın.",
+      "expert_note": "Kablo üzerine basılmış veya ezilmiş olabilir. Pendant kablosu robot hücrelerinde en çok hasar gören parçadır."
+    },
+    
+      {
+        "code": "ALARM 4100",
+        "title": "OVERCURRENT (CONVERTER)",
+        "description": "Konvertör girişinde veya çıkışında izin verilen akım limiti aştı.",
+        "solution": "Giriş voltajını kontrol edin. Sürücü modülleri (IGBT) üzerinde kısa devre olup olmadığını multimetre ile test edin.",
+        "expert_note": "Aynı güç hattına bağlı diğer motorların ani duruş-kalkışları parazit yaratıyor olabilir. Pano içindeki güç klemenslerini sıkılık açısından kontrol edin."
+      },
+      {
+        "code": "ALARM 4110",
+        "title": "OVERVOLTAGE (DC BUS)",
+        "description": "DC bara voltajı çok yüksek. Genellikle yavaşlama sırasında rejeneratif enerji boşaltılamadığında oluşur.",
+        "solution": "Frenleme direncinin (Regenerative Resistor) sağlamlığını ölçün. Robotun çok hızlı yavaşlayıp yavaşlamadığını kontrol edin.",
+        "expert_note": "Frenleme direnci üzerindeki termik sigorta atmışsa voltaj yükselecektir. Direnç uçları arasında 10-50 ohm arası değer görmelisiniz."
+      },
+      {
+        "code": "ALARM 4315",
+        "title": "MAIN POWER VOLTAGE DROP",
+        "description": "Ana giriş gücünde (L1, L2, L3) ani düşüş veya faz kaybı tespit edildi.",
+        "solution": "Pano girişindeki sigortaları ve fazları kontrol edin. Fabrika ana şebekesinde dalgalanma olup olmadığını izleyin.",
+        "expert_note": "Bazen ana kontaktörün (KM1) kontakları ark yaptığı için voltaj geçişi kararsızlaşabilir. Kontaktörü fiziksel olarak kontrol edin."
+      },
+      {
+        "code": "ALARM 1311",
+        "title": "COMMUNICATION ERROR (CPU-SERVO)",
+        "description": "Ana CPU ile servo kontrol kartı arasındaki veri iletişimi kesildi.",
+        "solution": "Kabloların (CN106, CN107) takılı olduğundan emin olun. CPU kartının ve Servo kartının yerine tam oturduğunu doğrulayın.",
+        "expert_note": "Hücre içindeki kaynak makinesi veya yüksek gerilim hatlarından gelen elektromanyetik parazit (EMI) bu hattı kesebilir. Kablo zırhlarını kontrol edin."
+      },
+      {
+        "code": "ALARM 5000",
+        "title": "ENCODER DATA ERROR",
+        "description": "Motor encoder'ından gelen veri paketi bozuk veya eksik.",
+        "solution": "Encoder kablosu boyunca herhangi bir hasar (ezilme, kesilme) olup olmadığını kontrol edin. Motor tarafındaki konektörü söküp temizleyin.",
+        "expert_note": "Robot hareket ederken hata veriyor, dururken vermiyorsa kablo kanalındaki (harness) kablolardan biri kopmak üzeredir."
+      },
+      {
+        "code": "ALARM 5120",
+        "title": "ENCODER BATTERY LOW",
+        "description": "Encoder pozisyon verisini tutan pil voltajı 3.0V altına düştü.",
+        "solution": "Robot tabanındaki veya pano içindeki pilleri (genellikle 3.6V Lithium) en kısa sürede yenisiyle değiştirin.",
+        "expert_note": "Pili robotun gücü AÇIKKEN değiştirin. Güç kapalıyken değiştirirseniz 'Home' pozisyonu kaybolur ve kalibrasyon gerekir."
+      },
+      {
+        "code": "ALARM 1320",
+        "title": "OPTION BOARD COMMUNICATION ERROR",
+        "description": "Eklenen opsiyonel kartlarla (Profinet, Ethernet/IP vb.) haberleşme sağlanamıyor.",
+        "solution": "Opsiyon kartının yerine tam oturduğunu ve dış ağ kablosunun sağlamlığını kontrol edin. Parametre ayarlarını doğrulayın.",
+        "expert_note": "Harici PLC ile robot arasındaki IP çakışması veya gateway hataları bu alarmı tetikler."
+      },
+      {
+        "code": "ALARM 4350",
+        "title": "OVERHEAT (SERVO PACK)",
+        "description": "Servo sürücü ünitesinin sıcaklığı limitleri aştı.",
+        "solution": "Sürücü üzerindeki soğutma fanlarının dönüp dönmediğini kontrol edin. Pano içi havalandırma kanallarını temizleyin.",
+        "expert_note": "Fanların üzerine yapışan yağ ve toz tabakası devir sayısını düşürür. Kompresör ile temizlik yapmak geçici çözümdür, fanı değiştirmek daha sağlıklıdır."
+      },
+        {
+          "code": "ALARM 4106",
+          "title": "OVERCURRENT (SERVO MOTOR)",
+          "description": "Servo motor sargılarına giden akım, anlık olarak güvenli limitlerin üzerine çıktı.",
+          "solution": "Motor güç kablosunda kısa devre olup olmadığını kontrol edin. Frenin açılıp açılmadığını manuel olarak test edin.",
+          "expert_note": "Robotun mekanik bir engele çarpması veya frenin mekanik olarak takılı kalması bu hatayı tetikler. Motoru sökmeden önce ekseni elle hareket ettirmeyi deneyin."
+        },
+        {
+          "code": "ALARM 4112",
+          "title": "CONTROL POWER VOLTAGE DROP",
+          "description": "Kontrol devrelerini besleyen 24V veya 5V seviyelerinde kritik düşüş tespit edildi.",
+          "solution": "Güç kaynağı (Power Supply) ünitesinin çıkışlarını ölçün. 24V hattına bağlı sensörlerde veya valflerde kısa devre olup olmadığını kontrol edin.",
+          "expert_note": "Hücre içindeki bir sensör kablosunun ezilip şaseye değmesi tüm kontrol voltajını aşağı çekebilir. Giriş klemenslerini tek tek ayırarak hatayı izole edin."
+        },
+        {
+          "code": "ALARM 4312",
+          "title": "CONVERTER RADIATOR OVERHEAT",
+          "description": "Konvertör ünitesinin soğutucu bloğu (heatsink) aşırı ısındı.",
+          "solution": "Pano fanlarının hava akışını engelleyen bir durum olup olmadığını kontrol edin. Toz filtrelerini temizleyin.",
+          "expert_note": "Heatsink arkasındaki termal macunun kuruması veya fanın devrinin düşmesi buna sebep olur. Basınçlı hava ile bloğun arasındaki tozları temizleyin."
+        },
+        {
+          "code": "ALARM 1302",
+          "title": "COMMUNICATION ERROR (SAFETY UNIT)",
+          "description": "Ana CPU ile Emniyet Kartı (FSU) arasındaki veri akışı bozuldu.",
+          "solution": "Emniyet birimi kablo bağlantılarını ve kartın yerine tam oturduğunu kontrol edin. Harici emniyet rölelerinden gelen sinyalleri doğrulayın.",
+          "expert_note": "FSU (Functional Safety Unit) kartı üzerindeki DIP switch ayarlarıyla oynandıysa bu hata alınabilir. Parametrelerle donanım eşleşmelidir."
+        },
+        {
+          "code": "ALARM 4321",
+          "title": "DYNAMIC BRAKE CIRCUIT ERROR",
+          "description": "Dinamik frenleme devresindeki bir bileşen (röle veya direnç) arızalandı.",
+          "solution": "Servo sürücü üzerindeki dinamik fren rölesinin çekip çekmediğini kontrol edin. Direnç değerlerini ölçün.",
+          "expert_note": "Acil duruşlarda robotu durduran bu devre, çok sık E-Stop yapıldığında aşırı ısınabilir veya kontakları yapışabilir."
+        },
+        {
+          "code": "ALARM 4108",
+          "title": "REGENERATIVE TRANSISTOR ERROR",
+          "description": "Geri besleme enerjisini yöneten transistör (IGBT) kısa devre veya açık devre oldu.",
+          "solution": "Servo sürücü modülünü kontrol edin. Aşırı yüklenme veya yanlış frenleme direnci bağlantısı olup olmadığını inceleyin.",
+          "expert_note": "Bu hata genellikle sürücü modülünün fiziksel olarak değişmesi gerektiğini gösterir. Değişim öncesi giriş voltajını mutlaka stabilize edin."
+        },
+        {
+          "code": "ALARM 1315",
+          "title": "COMMUNICATION ERROR (ENCODER HUB)",
+          "description": "Birden fazla eksenin encoder verisini toplayan hub ünitesi ile haberleşme sağlanamıyor.",
+          "solution": "Robot içindeki encoder toplama kartının (E-Hub) beslemesini ve kablolarını kontrol edin.",
+          "expert_note": "Özellikle 7. eksen veya harici pozisyoner kullanılan sistemlerde, aradaki ara kablonun (junction cable) hasar görmesiyle oluşur."
+        },
+        {
+          "code": "ALARM 4040",
+          "title": "POWER ON FAILURE (SERVO)",
+          "description": "Servo ON komutu gönderildiğinde güç ünitesi tepki vermedi.",
+          "solution": "Ana kontaktörün (KM1) bobin uçlarına voltaj gelip gelmediğini kontrol edin. Kontaktörün mekanik olarak sıkışmadığından emin olun.",
+          "expert_note": "Kontrol ünitesindeki 'Servo On' butonunun fiziksel temassızlığı bile buna sebep olabilir. Pendant üzerindeki sinyal durumunu izleyin."
+        },
+        
+          {
+            "code": "ALARM 1000",
+            "title": "SYSTEM ERROR (MAIN)",
+            "description": "Ana işlemci (CPU) beklenmedik bir yazılımsal istisna veya donanımsal çakışma ile karşılaştı.",
+            "solution": "Kontrol ünitesini kapatıp tekrar açın. Hata kodunun altındaki parantez içi rakamları (sub-code) kaydedin. Bellek (RAM) modüllerinin tam oturduğunu kontrol edin.",
+            "expert_note": "Eğer bu hata robotun belirli bir program satırında oluşuyorsa, o satırdaki komut yapısı bozuk olabilir. Program yedeği alıp o kısmı yeniden yazmayı deneyin."
+          },
+          {
+            "code": "ALARM 1051",
+            "title": "HARDWARE DIAGNOSIS ERROR (PCI BUS)",
+            "description": "Anakart üzerindeki haberleşme yollarında (PCI Bus) bir veri iletim hatası tespit edildi.",
+            "solution": "Opsiyonel kartları (I/O, Fieldbus vb.) tek tek sökerek hatanın hangi karttan kaynaklandığını izole edin.",
+            "expert_note": "Gevşek bir vida veya iletken bir toz parçası anakart üzerinde kısa devreye neden olup PCI veri yolunu kilitleyebilir. Panoyu kuru hava ile temizleyin."
+          },
+          {
+            "code": "ALARM 1060",
+            "title": "FPU ERROR",
+            "description": "Matematiksel işlem biriminde (Floating Point Unit) hesaplama hatası.",
+            "solution": "Sistemi yeniden başlatın. Eğer hata devam ediyorsa ana CPU kartının değişmesi gerekebilir.",
+            "expert_note": "Aşırı karmaşık matematiksel hesaplamalar içeren MotoPlus uygulamaları bu hatayı tetikleyebilir. Yazılımdaki döngüleri kontrol edin."
+          },
+          {
+            "code": "ALARM 1305",
+            "title": "COMMUNICATION ERROR (AXIS BOARD)",
+            "description": "Eksen kontrol kartı ile ana işlemci arasındaki haberleşme senkronizasyonu bozuldu.",
+            "solution": "Eksen kartı (Ax Control) üzerindeki konnektörleri ve fiber optik kabloları (varsa) kontrol edin.",
+            "expert_note": "Kontrol ünitesi içindeki yüksek frekanslı parazitler bu dijital iletişimi bozabilir. Pano kapağının tam kapalı ve vidalı olduğundan emin olun."
+          },
+          {
+            "code": "ALARM 4310",
+            "title": "CONVERTER CHARGE RESISTOR OVERHEAT",
+            "description": "Konvertör şarj direnci, kapasitesinin üzerinde ısındı.",
+            "solution": "Robotun giriş beslemesini (AC) kontrol edin. Çok sık aç-kapat (reboot) yapılması bu direnci ısıtır, bekleyip tekrar deneyin.",
+            "expert_note": "Giriş kontaktörü KM1 çekmiyorsa, sistem sürekli şarj direnci üzerinden beslenmeye çalışır ve bu alarmı verir. Kontaktörü kontrol edin."
+          },
+          {
+            "code": "ALARM 5130",
+            "title": "ENCODER CHECKSUM ERROR",
+            "description": "Encoder'dan gelen verinin doğrulama kodu (checksum) hatalı.",
+            "solution": "Hangi eksende hata olduğunu bulun. O eksenin encoder kablosunu diğer bir eksenle çaprazlayarak hatanın kabloda mı yoksa motorda mı olduğunu test edin.",
+            "expert_note": "Haberleşme hattındaki elektriksel gürültü veri paketini bozuyor olabilir. Motorun güç kablosu ile encoder kablosunun birbirinden ayrı kanallardan geçtiğinden emin olun."
+          },
+          {
+            "code": "ALARM 4000",
+            "title": "SERVO POWER OFF ERROR",
+            "description": "Servo gücü kapatılmak istendiğinde, sistem hala akım çekildiğini tespit etti.",
+            "solution": "Sürücü modüllerindeki (Power Module) kaçak akımları kontrol edin. Frenlerin kapatılma zamanlamasını (parametre bazlı) inceleyin.",
+            "expert_note": "Sürücü içindeki bir transistör (IGBT) sızıntı yapıyor olabilir. Sürücünün çıkış terminallerini toprak hattına karşı ölçün."
+          },
+          {
+            "code": "ALARM 1314",
+            "title": "COMMUNICATION ERROR (INTERNAL I/O)",
+            "description": "Kontrol ünitesi içindeki standart I/O kartı ile haberleşme kurulamıyor.",
+            "solution": "Dahili I/O kartının besleme voltajını (24V DC) kontrol edin. Haberleşme konnektörlerini sıkılaştırın.",
+            "expert_note": "24V harici besleme hattında bir kısa devre varsa kart kendini korumaya alıp haberleşmeyi kesebilir."
+          },
+          
+            {
+              "code": "ALARM 1317",
+              "title": "FIELDBUS COMMUNICATION ERROR",
+              "description": "Opsiyonel haberleşme kartı (Profinet, EtherNet/IP, DeviceNet vb.) ile üst kontrolcü (PLC) arasındaki veri akışı kesildi.",
+              "solution": "Haberleşme kablosunu (RJ45, Trunk kablosu vb.) ve PLC tarafındaki port durumunu kontrol edin. Kartın IP adresi veya istasyon adı ayarlarını doğrulayın.",
+              "expert_note": "Eğer hata sadece robot hareket ederken oluyorsa, haberleşme kablosu yüksek güç kablolarından parazit kapıyor olabilir. STP (zırhlı) kablo kullanıldığından emin olun."
+            },
+            {
+              "code": "ALARM 1324",
+              "title": "I/O MODULE COMBINATION ERROR",
+              "description": "Sistemde tanımlı olan I/O modül sayısı veya tipi ile fiziksel olarak takılı olanlar eşleşmiyor.",
+              "solution": "I/O modüllerinin bağlantı soketlerini kontrol edin. Yeni bir modül eklendiyse, 'Maintenance Mode' üzerinden I/O konfigürasyonunu güncelleyin.",
+              "expert_note": "Modüllerin üzerindeki adresleme anahtarları (DIP switch) yerinden oynamış olabilir. Fabrika ayarlarına göre switch pozisyonlarını kontrol edin."
+            },
+            {
+              "code": "ALARM 1331",
+              "title": "SAFETY UNIT COMMUNICATION ERROR",
+              "description": "Fonksiyonel Güvenlik Birimi (FSU) ile sistem ana CPU'su arasında senkronizasyon kaybı.",
+              "solution": "FSU kartını söküp pinlerini temizleyerek tekrar takın. Emniyet parametrelerinin doğru yüklendiğinden emin olun.",
+              "expert_note": "FSU hataları genellikle 'Check Sum' hatasıyla birlikte gelir. Parametrelerin kilitli (validate) olduğunu teyit edin."
+            },
+            {
+              "code": "ALARM 4351",
+              "title": "EXTERNAL AXIS SERVO PACK ERROR",
+              "description": "Robot dışındaki harici eksene (Pozisyoner, Lineer kızak vb.) ait servo sürücüde kritik hata.",
+              "solution": "Harici eksenin güç ve encoder kablolarını kontrol edin. Sürücü üzerindeki hata kodunu (Display ekranından) okuyun.",
+              "expert_note": "Harici eksen frenleri genellikle robotunkinden farklı bir kaynaktan beslenir. Fren voltajının (24V) harici sürücüye ulaştığını doğrulayın."
+            },
+            {
+              "code": "ALARM 1340",
+              "title": "WELDING BOARD COMMUNICATION ERROR",
+              "description": "Ark kaynağı ekipmanı ile robotun iç haberleşme kartı (Analog/Digital interface) arasında kopukluk.",
+              "solution": "Kaynak makinesi ile robot arasındaki haberleşme kablosunu ve kaynak kartının (WIA kartı vb.) voltajını kontrol edin.",
+              "expert_note": "Kaynak sırasındaki yüksek akım sıçramaları haberleşme entegrelerine zarar vermiş olabilir. Kart üzerindeki sigortaları kontrol edin."
+            },
+            {
+              "code": "ALARM 4316",
+              "title": "CONTROL POWER FUSE BLOWN",
+              "description": "Kontrol ünitesi içindeki 24V veya 5V besleme hattına ait sigorta attı.",
+              "solution": "Sigortayı değiştirmeden önce hattaki kısa devreyi bulun. Özellikle el terminali ve harici I/O klemenslerini kontrol edin.",
+              "expert_note": "Genellikle 'Gripper' (tutucu) kablosunun robot bilek kısmında sürtünerek kısa devre yapması bu sigortayı attırır."
+            },
+            {
+              "code": "ALARM 1313",
+              "title": "LAN COMMUNICATION ERROR",
+              "description": "Robotun standart Ethernet (LAN) portu üzerinden yapılan haberleşmede (FTP, HTTP vb.) hata.",
+              "solution": "Ağ kablosunun sağlamlığını ve IP çakışması olup olmadığını kontrol edin. Firewall (Güvenlik Duvarı) ayarlarının erişimi engellemediğinden emin olun.",
+              "expert_note": "YRC1000'de iki adet LAN portu bulunur. Doğru porta (LAN1 veya LAN2) taktığınızdan ve parametrelerde o portun aktif olduğundan emin olun."
+            },
+            
+              {
+                "code": "ALARM 4111",
+                "title": "DEVIATION OVER ERROR",
+                "description": "Robotun gerçek pozisyonu ile komut edilen pozisyon arasındaki fark (takip hatası) tolerans sınırını aştı.",
+                "solution": "Mekanik bir engel veya sürtünme olup olmadığını kontrol edin. Frenlerin tamamen açıldığından emin olun. Yük (payload) ayarlarının doğruluğunu kontrol edin.",
+                "expert_note": "Genellikle ağır yüklerde veya yüksek hızlarda robotun fiziksel olarak yetişemediği durumlarda oluşur. 'ACCEL' komutu ile ivmelenmeyi düşürmek sorunu genelde çözer."
+              },
+              {
+                "code": "ALARM 4318",
+                "title": "BRAKE POWER SUPPLY ERROR",
+                "description": "Eksen frenlerini açmak için gereken 24V DC beslemede hata veya kesinti.",
+                "solution": "Fren besleme sigortasını ve fren kablo bağlantılarını kontrol edin. Fren rölesinin (RBK) düzgün çalıştığından emin olun.",
+                "expert_note": "Eğer sadece belirli bir eksende oluyorsa, o eksenin fren bobini kısa devre yapmış olabilir. Bobin direncini ölçün."
+              },
+              {
+                "code": "ALARM 5140",
+                "title": "ENCODER POSITION MISMATCH",
+                "description": "Sistem kapatılıp açıldığında encoder'dan gelen mutlak pozisyon verisi, kaydedilen son veri ile uyuşmuyor.",
+                "solution": "Robotun kapalıyken fiziksel olarak hareket ettirilip ettirilmediğini kontrol edin. Pilleri kontrol edin ve gerekirse 'Home' kalibrasyonunu yenileyin.",
+                "expert_note": "Robot harici bir yük (yerçekimi) nedeniyle güç kesildiğinde kayma yapıyorsa fren balataları aşınmış olabilir."
+              },
+              {
+                "code": "ALARM 1030",
+                "title": "MEMORY CHECKSUM ERROR",
+                "description": "Sistem parametrelerinin veya kullanıcı programlarının saklandığı bellek alanında veri bozulması.",
+                "solution": "Sistemi 'Maintenance Mode' (Bakım Modu) ile başlatıp parametre yedeğini (CMOS.BIN) geri yükleyin.",
+                "expert_note": "Aşırı elektriksel parazit veya CMOS pilinin bitmesi veriyi bozabilir. Yedeğiniz yoksa sistem kurulumu gerekebilir."
+              },
+              {
+                "code": "ALARM 4030",
+                "title": "REGENERATIVE UNIT OVERHEAT",
+                "description": "Geri besleme enerjisini sönümleyen rejeneratif ünitenin sıcaklığı çok yükseldi.",
+                "solution": "Robotun çalışma çevrimini (duty cycle) kontrol edin. Çok sık ve sert duruş-kalkış yapılıp yapılmadığını inceleyin.",
+                "expert_note": "Kısa sürede çok fazla çevrim yapan robotlarda bu ısı birikir. Program aralarına 0.5 saniyelik 'TIMER' bekleme komutları ekleyerek üniteyi dinlendirin."
+              },
+              {
+                "code": "ALARM 1010",
+                "title": "S-BUS ERROR",
+                "description": "Anakart ile haberleşme birimleri arasındaki iç veri yolu (S-Bus) hatası.",
+                "solution": "Kartların yerine tam oturduğunu ve pinlerde korozyon olmadığını doğrulayın. Harici I/O kartlarını söküp tekrar deneyin.",
+                "expert_note": "Gevşek bir pano içi kablo veya nemli ortam kartlar arasında kısa devreye yol açabilir. Panoyu nemden arındırın."
+              },
+              {
+                "code": "ALARM 4352",
+                "title": "ENCODER SIGNAL LOSS",
+                "description": "Servo motor encoder sinyali tamamen kayboldu.",
+                "solution": "Encoder konnektörünü ve kablosunu kontrol edin. Motor tarafındaki bağlantının yağlanıp yağlanmadığına bakın.",
+                "expert_note": "Hücredeki vibrasyon zamanla konnektörün gevşemesine neden olur. Konnektörü yerine iyice sabitleyin ve kilitli olduğundan emin olun."
+              },
+              
+                {
+                  "code": "ALARM 4363",
+                  "title": "COLLISION DETECTION",
+                  "description": "Robotun hareketi sırasında, eksen torkları önceden tanımlanmış eşik değerlerini aştı.",
+                  "solution": "Robot çalışma alanı içerisindeki engelleri kaldırın. Robot üzerindeki yük (payload) ve merkez (CoG) değerlerinin güncel olup olmadığını kontrol edin.",
+                  "expert_note": "Bu alarm en çok 'Tool' ağırlığı yanlış girildiğinde tetiklenir. Robot her hızlandığında ve yavaşladığında sanki bir yere çarpıyormuş gibi tork yükü oluşur. Yük değerlerini yeniden kalibre edin."
+                },
+                {
+                  "code": "ALARM 4364",
+                  "title": "COLLISION DETECTION (DURING TEACH)",
+                  "description": "Manuel hareket (Teach Mode) sırasında çarpmayı önleme fonksiyonu tetiklendi.",
+                  "solution": "Robotun ucundaki ekipmanın (gripper/torch) herhangi bir yere değip değmediğini kontrol edin. Hızı düşürerek eksenleri serbest hareket ettirin.",
+                  "expert_note": "Eğer boşta hareket ederken bile veriyorsa, kablo kanallarındaki bir takılma veya motor freninin tam açılmaması (fren balatası sürtünmesi) buna sebep olur."
+                },
+                {
+                  "code": "ALARM 4365",
+                  "title": "COLLISION DETECTION (DURING PLAYBACK)",
+                  "description": "Otomatik çalışma (Playback) sırasında çarpma algılandı.",
+                  "solution": "Program içerisindeki hız (speed) değerlerini kontrol edin. Robotun rotasındaki fiziksel nesneleri inceleyin.",
+                  "expert_note": "Program içindeki 'Move' komutlarında ani yön değişimleri bu hatayı tetikler. Dönüşlerdeki ivmelenmeyi (Accel/Decel) yumuşatmak için yumuşak geçiş komutlarını kullanın."
+                },
+                {
+                  "code": "ALARM 4366",
+                  "title": "TORQUE LIMIT EXCEEDED",
+                  "description": "Belirli bir eksen, programlanan tork sınırına ulaştı.",
+                  "solution": "Eksen üzerindeki mekanik yükü kontrol edin. Motorun aşırı ısınıp ısınmadığını gözlemleyin.",
+                  "expert_note": "Dişli kutusundaki (gearbox) aşınma, motorun daha fazla akım çekmesine neden olur. Eksenleri boşta (frenleri açıkken) elinizle zorlanmadan çevirebiliyor olmalısınız."
+                },
+                
+                  {
+                    "code": "ALARM 4101",
+                    "title": "SHOCK SENSOR TRIGGERED",
+                    "description": "Robotun ucuna bağlı olan mekanik veya elektriksel darbe sensörü (Crash Sensor) tetiklendi.",
+                    "solution": "Sensörün fiziksel konumunu ve kablolarını kontrol edin. Robotu yavaş modda (Teach) hareket ettirerek sensörü resetleyin.",
+                    "expert_note": "Genellikle armatür (jig) çarpışmaları veya tel besleme ünitesinin sıkışması sensörü açar. Sensör gövdesindeki yay tansiyonunu kontrol edin."
+                  },
+                  {
+                    "code": "ALARM 4102",
+                    "title": "COLLISION DETECTED (SOFT)",
+                    "description": "Yazılımsal çarpışma algılama (Collision Detection) özelliği, eksen torkundaki anormal artışı tespit etti.",
+                    "solution": "Robotun yol üzerindeki parçalara çarpıp çarpmadığını inceleyin. Collision Detection hassasiyet (sensitivity) parametrelerini gözden geçirin.",
+                    "expert_note": "Robot yolları çok dar ise, bu özellik bazen 'false alarm' verebilir. Hassasiyeti biraz düşürmek gerekebilir."
+                  },
+                  {
+                    "code": "ALARM 4103",
+                    "title": "SHOCK SENSOR INPUT SIGNAL OFF",
+                    "description": "Darbe sensörünün normalde kapalı (NC) olan devresi kesildi.",
+                    "solution": "Sensör kablosundaki kopukluğu arayın. Sensörün reset butonunun basılı olup olmadığını kontrol edin.",
+                    "expert_note": "Sensör kablosu sürekli bükülmekten dolayı robotun 3. veya 4. ekseninde içten kopabilir. Süreklilik (ohm) ölçümü yapın."
+                  },
+                  {
+                    "code": "ALARM 4104",
+                    "title": "TORQUE LIMIT EXCEEDED (COLLISION)",
+                    "description": "Robot ekseni, tanımlanan tork sınırını aşarak mekanik bir zorlanma yaşadı.",
+                    "solution": "Robotun yük (payload) ayarlarının güncel olup olmadığını kontrol edin. Mekanik frenlerin tam açıldığından emin olun.",
+                    "expert_note": "Robotun ucundaki torcun (torch) ağırlığı artırıldıysa veya bir eklenti takıldıysa tork limitlerini mutlaka güncellemelisiniz."
+                  },
+                  {
+                    "code": "ALARM 4105",
+                    "title": "EXTERNAL FORCE DETECTED",
+                    "description": "Robot koluna dışarıdan beklenmedik bir kuvvet uygulanıyor.",
+                    "solution": "Robotun etrafındaki güvenlik kafeslerini ve yabancı maddeleri temizleyin. Robot koluna yaslanan herhangi bir ekipman olup olmadığını kontrol edin.",
+                    "expert_note": "Büyük robotlarda bazen enerji kablosu (dress pack) gerginliği eksene dış kuvvet gibi yansıyabilir. Kablo gerginliğini boşaltın."
+                  },
+                    {
+                      "code": "ALARM 4300",
+                      "title": "CONVERTER VOLTAGE DROP",
+                      "description": "Konvertör devresindeki DC ana bara voltajı, robot hareket halindeyken aniden düştü.",
+                      "solution": "Giriş fazlarını (L1, L2, L3) kontrol edin. Ana kontaktörün ark yapıp yapmadığını ve klemens gevşekliğini inceleyin.",
+                      "expert_note": "Aynı hattaki kompresör veya punto kaynak makinesi gibi yüksek akım çeken cihazlar voltajı anlık çökertebilir. Şebeke ölçümü yapın."
+                    },
+                    {
+                      "code": "ALARM 4313",
+                      "title": "FAN ALARM (CONTROLLER)",
+                      "description": "Kontrol ünitesi içindeki soğutma fanlarından biri durdu veya devri düştü.",
+                      "solution": "Pano arkasındaki veya içindeki fanları kontrol edin. Fanların kablo soketlerini ve toz durumunu inceleyin.",
+                      "expert_note": "Fanlar bazen yağ buharı nedeniyle yapışır. Temizlemek yerine yenisiyle değiştirmek ana kartın yanmasını önler."
+                    },
+                    {
+                      "code": "ALARM 4314",
+                      "title": "FAN ALARM (SERVO PACK)",
+                      "description": "Servo sürücü ünitesinin (Servopack) kendi soğutma fanı arızalandı.",
+                      "solution": "Sürücü ünitesinin üzerindeki küçük fanı kontrol edin. Fan dönmüyorsa sürücü aşırı ısınmadan dolayı kendini korumaya alacaktır.",
+                      "expert_note": "Bu fan durduğunda sürücü modülü çok çabuk ısınır. Değişim yaparken mutlaka orijinal RPM değerine sahip fan kullanın."
+                    },
+                    {
+                      "code": "ALARM 1316",
+                      "title": "COMMUNICATION ERROR (I/O RACK)",
+                      "description": "Genişleme I/O rafı veya modülleri ile ana CPU arasındaki haberleşme koptu.",
+                      "solution": "I/O modülleri arasındaki haberleşme kablosunu ve sonlandırıcı (terminator) direncini kontrol edin.",
+                      "expert_note": "Raf tipi modüllerde modüllerin birbirine geçme pinleri oksitlenmiş olabilir. Modülleri söküp pinleri temizleyerek tekrar takın."
+                    },
+                    {
+                      "code": "ALARM 1318",
+                      "title": "SAFETY CIRCUIT SIGNAL ERROR",
+                      "description": "Emniyet devresindeki çift kanal (dual channel) sinyalleri arasında tutarsızlık tespit edildi.",
+                      "solution": "E-Stop veya kapı switchlerinden gelen iki sinyalin aynı anda gelip gelmediğini kontrol edin. Rölelerin bir kanalı takılı kalmış olabilir.",
+                      "expert_note": "En sık karşılaşılan emniyet hatasıdır. Genellikle switchlerden birinin mekanik olarak basılı kalması veya kablosunun kopmasıyla oluşur."
+                    },
+                    {
+                      "code": "ALARM 4324",
+                      "title": "EXTERNAL AXIS CONVERTER ERROR",
+                      "description": "Harici eksen (7. eksen vb.) konvertör ünitesinde aşırı yük veya voltaj hatası.",
+                      "solution": "Harici eksenin frenini ve yükünü kontrol edin. Harici konvertörün besleme kablolarını inceleyin.",
+                      "expert_note": "Harici eksen kabloları genellikle uzun olduğu için gerilim düşümü yaşanabilir. Kablo kesitinin uygunluğunu kontrol edin."
+                    },
+                    {
+                      "code": "ALARM 5111",
+                      "title": "ENCODER BATTERY ERROR (ABS)",
+                      "description": "Encoder mutlak pozisyon verisini tutan pil tamamen bitti veya devre dışı.",
+                      "solution": "Pili hemen değiştirin. Eğer robot pozisyonunu kaybettiyse tüm eksenleri sıfır (home) pozisyonuna getirip kalibre edin.",
+                      "expert_note": "Bu alarm 'Low Battery' uyarısı dikkate alınmadığında ortaya çıkar. İşlemi bitirdiğinizde 'Home Position' ayarlarını mutlaka kontrol edin."
+                    },
+                    {
+                      "code": "ALARM 8002",
+                      "title": "RAM ERROR",
+                      "description": "Anakart üzerindeki geçici bellekte (RAM) yazma veya okuma hatası.",
+                      "solution": "Sistemi kapatıp açın. Hata devam ederse RAM modüllerini söküp soketleri temizleyerek tekrar takın.",
+                      "expert_note": "Statik elektrik veya aşırı sıcaklık RAM'in kararsızlaşmasına neden olabilir. Pano soğutmasının çalıştığından emin olun."
+                    },
+                    {
+                      "code": "ALARM 4744",
+                      "title": "M-SAF PP ENABLE SW SIG. ERROR",
+                      "description": "El terminali (Teach Pendant) üzerindeki Enable Switch (Ölü Adam Butonu) sinyalleri arasında tutarsızlık. Emniyet kartı (M-SAF), switch'in 'basılı' ve 'bırakılmış' durumları arasında senkronizasyon hatası algıladı.",
+                      "solution": "1. El terminali üzerindeki 'ALARM RESET' butonuna basın. 2. Enable switch'e parmağınızı yerleştirip orta pozisyona getirin. 3. Eğer hata kalıcı ise, el terminali kablosunun pano ve terminal tarafındaki bağlantılarını kontrol edin.",
+                      "expert_note": "Sahada en sık karşılaşılan 'false alarm'lardan biridir. Genellikle teknisyen parmağını switch'ten çok hızlı çektiğinde veya switch'i 'orta' pozisyonda tutarken parmağı kaydığında oluşur. Resetlendikten sonra servo ON yapılabiliyorsa sorun yoktur. Eğer resetlenmiyorsa kablo hasarı veya terminal kartı arızası düşünülmelidir."
+                    },
+                    
+                      {
+                        "code": "ALARM 1374",
+                        "title": "ENCODER MIXED ALLOCATION ERROR",
+                        "description": "Encoder atama hatası. Kontrolcü, bağlı olan motorların encoder tipleri ile parametrelerde tanımlı olan encoder yapılandırmasının eşleşmediğini tespit etti.",
+                        "solution": "Sistemi 'Maintenance Mode' (Bakım Modu) ile başlatın. 'CONTROL GROUP' ayarlarından motor ve encoder tiplerinin fiziksel donanımla aynı olduğunu doğrulayın. Yanlış bir eksen tanımlaması yapılıp yapılmadığını kontrol edin.",
+                        "expert_note": "Genellikle robotun ana gövdesine (Robot1) harici bir eksen (Station1) eklendiğinde veya bir eksen kartı değiştirildiğinde ortaya çıkar. Parametrelerin donanımla senkronize edilmesi şarttır."
+                      },
+                      {
+                        "code": "ALARM 1308",
+                        "title": "CONVERTER TYPE MISMATCH",
+                        "description": "Konvertör (Sürücü) tipi uyumsuzluğu. Parametrelerde kayıtlı olan konvertör modeli ile fiziksel olarak sisteme takılı olan donanım farklı.",
+                        "solution": "Sürücü ünitesinin üzerindeki etiketten model kodunu okuyun. Sistem parametrelerinden tanımlanan konvertör kapasitesini ve tipini (S, M, L tipi vb.) bu kodla eşleşecek şekilde güncelleyin.",
+                        "expert_note": "Özellikle arızalı bir sürücü değiştirildiğinde, eğer yeni gelen sürücünün kapasitesi (Watt değeri) eskisinden farklıysa bu hatayı alırsınız. Donanım fiziksel olarak uysa bile yazılım onayı gerekir."
+                      },
+                      {
+                        "code": "ALARM 4740",
+                        "title": "M-SAF OVERRUN DETECT",
+                        "description": "Emniyet birimi (M-SAF) tarafından tespit edilen hareket aşımı. Robotun bir ekseni, emniyet sınırlarının ötesine geçti veya emniyet kartı bu yönde yanlış bir sinyal algıladı.",
+                        "solution": "Robotun limit switchlerini ve mekanik durdurucularını kontrol edin. Emniyet kartı üzerindeki sinyal durumlarını inceleyin. Resetlemeyi deneyin; hata kalıcıysa emniyet parametrelerini (FSU) kontrol edin.",
+                        "expert_note": "Bu hata bazen donanımsal bir arızadan ziyade, emniyet kartının yazılımsal bir koruma döngüsüne girmesiyle oluşur. Genellikle diğer konfigürasyon hataları (1374, 1308) çözüldüğünde bu hata da resetlenebilir hale gelir."
+                      },
+                      
+                        {
+                          "code": "ALARM 0300",
+                          "title": "VERIFY ERROR (SYSTEM CONFIG-DATA)",
+                          "description": "Sistem yapılandırma verilerinde doğrulama hatası. Mevcut donanım ile kayıtlı sistem dosyaları arasında uyumsuzluk var.",
+                          "solution": "Ekranın altında yazan 'Select Safety Board FLASH Reset' komutunu uygulayın. Emniyet kartı verilerini sistemle senkronize edin.",
+                          "expert_note": "Genellikle emniyet kartı (FSU) değişikliklerinden sonra veya sistem imajı geri yüklendiğinde görülür. Fiziksel donanım değişikliği yaptıysanız mutlaka onaylamanız gerekir."
+                        },
+                        {
+                          "code": "ALARM 1325",
+                          "title": "COMMUNICATION ERROR (ENCODER)",
+                          "description": "Belirli bir istasyondaki (Görselde Station 1) encoder haberleşmesinde kopukluk.",
+                          "solution": "Station 1'e bağlı motorun encoder kablosunu ve konnektörlerini kontrol edin. Kabloda kırılma veya yağlanma olup olmadığına bakın.",
+                          "expert_note": "Görselde 4992 ile birlikte gelmiş; bu durum kablonun tamamen koptuğunu veya sinyalin tamamen kesildiğini gösterir."
+                        },
+                        {
+                          "code": "ALARM 4992",
+                          "title": "INTERNAL ROBOT POS. UNMATCH",
+                          "description": "Robotun iç hesaplamadaki pozisyonu ile encoder'dan gelen pozisyon verisi uyuşmuyor.",
+                          "solution": "Encoder hatasını (1325) çözdükten sonra robotu 'Home' pozisyonuna getirip kalibre edin.",
+                          "expert_note": "Encoder verisi koptuğu için robot nerede olduğunu 'unutmuş' durumdadır. Güvenlik için kalibrasyon şarttır."
+                        },
+                        {
+                          "code": "ALARM 9004",
+                          "title": "GAS FAILURE (RESTART)",
+                          "description": "Kaynak gazı akışında kesinti veya basınç düşüşü.",
+                          "solution": "Gaz tüpünü, regülatörü ve torç ucundaki gaz memelerini kontrol edin. Gaz sensörü sinyalini I/O ekranından izleyin.",
+                          "expert_note": "Ark kaynağı sırasında gaz biterse sistem kaliteyi korumak için durur. Gazı yenileyip 'Restart' yapabilirsiniz."
+                        },
+                        {
+                          "code": "ALARM 4455",
+                          "title": "UNDEFINED ARC START COND FILE",
+                          "description": "Tanımlanmamış kaynak başlangıç koşul dosyası hatası.",
+                          "solution": "Programdaki 'ASV' veya 'ASF' komutlarındaki dosya numarasının (Örn: ASF#1) veri tabanında kayıtlı olduğundan emin olun.",
+                          "expert_note": "Genellikle silinmiş veya hiç oluşturulmamış bir kaynak dosyasına (Arc File) program içinden çağrı yapıldığında oluşur."
+                        },
+                        {
+                          "code": "ALARM 4447",
+                          "title": "DEFECTIVE TAUGHT POINT (CIRC)",
+                          "description": "Hatalı öğretilmiş dairesel (Circular) hareket noktası.",
+                          "solution": "Dairesel hareket için gereken 3 noktanın birbirine çok yakın olmadığını veya aynı doğru üzerinde olmadığını kontrol edin.",
+                          "expert_note": "Robot matematiksel olarak bir yay çizemediğinde bu hatayı verir. Noktalar arasındaki mesafeyi artırarak tekrar öğretin."
+                        },
+                        {
+                          "code": "ALARM 4684",
+                          "title": "INTERPOLATION INVALID",
+                          "description": "Geçersiz interpolasyon (hesaplama) hatası.",
+                          "solution": "Robotun çalışma zarfı (workspace) dışına çıkıp çıkmadığını kontrol edin. Hareket tipini (MOVL, MOVC) gözden geçirin.",
+                          "expert_note": "Robotun eklemlerinin mekanik olarak yetişemeyeceği veya matematiksel olarak tekilliğe (singularity) girdiği noktalarda oluşur."
+                        },
+                        {
+                          "code": "ALARM 9067",
+                          "title": "ALARM POWER SOURCE",
+                          "description": "Kaynak güç kaynağı (Welder) genel hatası.",
+                          "solution": "Kaynak makinesinin (Fronius, Lincoln vb.) üzerindeki ekranı kontrol edin. Makine aşırı ısınmış veya tel sıkışmış olabilir.",
+                          "expert_note": "Robot kontrolcüsü burada sadece 'makinede sorun var' der. Detay için kaynak makinesinin kendi hata koduna bakmalısınız."
+                        }
+                      
+                    
+                  
+                
+              
+            
+          
+        
+      
+    
+]

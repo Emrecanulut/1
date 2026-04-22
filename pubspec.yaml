@@ -1,0 +1,26 @@
+name: motoman_fix
+description: Technical service assistant for Yaskawa Motoman error diagnosis.
+publish_to: "none"
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  camera: ^0.11.0+2
+  google_ml_kit: ^0.20.0
+  path_provider: ^2.1.4
+  sqflite: ^2.3.3+1
+  intl: ^0.19.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - lib/data/error_db.json
